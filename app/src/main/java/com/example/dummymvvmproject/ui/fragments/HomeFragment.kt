@@ -66,7 +66,8 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private var lat = ""
     private var lng = ""
     private val TAG = HomeFragment::class.java.simpleName
-    private val viewModel: HomeViewModel by viewModels()
+
+    val viewModel: HomeViewModel by viewModels()
     private lateinit var binding: HomeFragmentBinding
     private lateinit var myDialog: MyDialog
     private lateinit var locationManager: LocationManager
@@ -77,6 +78,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     var i = 0
 
     companion object {
+
         private const val REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE = 34
         const val REQUEST_CHECK_SETTINGS = 100
     }

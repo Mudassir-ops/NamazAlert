@@ -49,6 +49,20 @@ constructor(
         }
     }
 
+    fun setStateEvent1( lat: String, lng: String) {
+        viewModelScope.launch {
+
+                    mainRepository.getBlogsTest(
+                        lat, lng
+                    )
+                        .onEach { dataState ->
+                            _dataState.value = dataState
+                        }
+                        .launchIn(viewModelScope)
+                }
+
+
+    }
     companion object {
         private val TAG = MainViewModel::class.java.simpleName
     }

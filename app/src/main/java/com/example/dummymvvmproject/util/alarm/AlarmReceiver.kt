@@ -17,7 +17,6 @@ import android.os.Build
 
 class AlarmReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-
         if (intent != null) {
             Log.e("ALARMValues", "ALARM RUNNING" + intent.flags)
 //             val mediaPlayer: MediaPlayer = MediaPlayer.create(context, R.raw.azaan)

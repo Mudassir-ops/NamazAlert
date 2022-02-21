@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dummymvvmproject">
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -37,9 +38,7 @@
             android:name=".util.alarm.AlarmReceiver"
             android:enabled="true"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
+
         </receiver>
 
         <service
@@ -50,6 +49,22 @@
         <receiver
             android:name=".util.alarm.NotificationDismissedReceiver"
             android:exported="false" />
+
+
+        <service android:name=".util.alarm.ForegroundService"/>
+        <service android:name=".util.alarm.AlarmRebootService"/>
+
+        <receiver android:name=".data.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

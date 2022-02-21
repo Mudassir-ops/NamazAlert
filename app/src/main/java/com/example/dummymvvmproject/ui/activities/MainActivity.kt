@@ -21,9 +21,8 @@ import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 import android.content.Intent
-
-
-
+import com.example.dummymvvmproject.util.alarm.ForegroundService
+import com.example.dummymvvmproject.util.alarm.MsgPushService
 
 
 @ExperimentalCoroutinesApi
@@ -41,12 +40,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-       // isInBetween("05:23:00", "12:33:00", "05:22:00")
-        isInBetween("19:43:00", "05:23:00", "05:22:00")
-
-
-        // Log.d(TAG, "onCreate: ${isTimeBetweenTwoTime("05:23:24", "05:33:25", "05:28:22")}")
 
         binding.apply {
             val navView: BottomNavigationView = findViewById(R.id.nav_view)
